@@ -1,9 +1,14 @@
 # cubos-devops-test
 
+Este projeto é parte de um desafio técnico e tem como objetivo demonstrar
+a criação de uma infraestrutura como código utilizando Terraform e Docker.  
+A arquitetura implementada garante isolamento, segurança e persistência de dados
+em uma aplicação composta por **Frontend, Backend, Banco de Dados e Proxy Reverso**.
+
 ## Requisitos
 
-- [ ] Docker
-- [ ] Terraform
+- [Docker](https://docs.docker.com/get-docker/) (necessário para criação e execução dos containers)
+- [Terraform](https://developer.hashicorp.com/terraform/downloads) (necessário para provisionar a infraestrutura como código)
 
 ## Infraestrutura do Projeto
 ```mermaid
@@ -33,11 +38,11 @@ graph LR
 A infraestrutura consiste em 4 containers:
 - Frontend: Container apache servindo a aplicação frontend
 - Backend: Container node servindo uma API que fornece dados para o frontend
-- PostgreSQL: Container postgres com volume docker persistente
+- PostgreSQL: Container postgres com volume docker persistente e mapeamento de porta para o localhost(127.0.0.1), garantindo que somente a máquina local consiga acessar
 - Nginx: Container nginx atuando como proxy reverso
 ### Redes
 - cubos_public_network: Rede pública, conecta apenas o nginx(ponto de entrada da aplicação)
-- cubos_private_network: Rede interna, conecta todos os containers isolando do acesso acesso externo
+- cubos_private_network: Rede interna, conecta todos os containers isolando do acesso externo
 
 ### Fluxo de Comunicação
 - Usuário → solicita / → Nginx → Frontend.
@@ -45,6 +50,9 @@ A infraestrutura consiste em 4 containers:
 - Backend → consulta → PostgreSQL.
 
 Apenas o Nginx está exposto para o mundo externo; frontend, backend e banco ficam isolados na rede privada.
+
+### Persistência dos Dados
+Os dados do banco de dados são armazenados dentro de um volume docker chamado `database`. isso garante que, mesmo apagando o container, os dados permanecem
 
 ## Inicialização da Infraestrutura Local
 ### Preparar variáveis
