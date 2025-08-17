@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "mkdir -p /server/logs && node --env-file=.env index.js > /server/logs/backend.log 2>&1"]
+ENTRYPOINT [ "node", "--env-file=.env", "index.js"  ]

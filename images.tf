@@ -8,25 +8,6 @@ resource "docker_image" "postgres" {
   keep_locally = false
 }
 
-resource "docker_image" "kibana" {
-  name         = "kibana:9.1.2"
-  keep_locally = false
-}
-
-resource "docker_image" "elasticsearch" {
-  name         = "elasticsearch:9.1.2"
-  keep_locally = false
-}
-
-resource "docker_image" "fluentd" {
-  name         = "fluentd"
-  keep_locally = false
-  build {
-    context = "${path.cwd}/fluentd"
-    tag     = ["fluentd:dev"]
-  }
-}
-
 resource "docker_image" "frontend" {
   name         = "frontend"
   keep_locally = false
