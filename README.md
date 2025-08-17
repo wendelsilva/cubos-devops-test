@@ -106,3 +106,10 @@ terraform destroy -auto-approve
 - [Terraform Docker Provider](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs)
 - [Documentação Nginx](https://nginx.org/en/docs/beginners_guide.html)
 - [Docker Hub](https://hub.docker.com/)
+
+## Branch v2.0.0
+Na branch v2.0.0, a aplicação conta com recursos de observabilidade e monitoramento integrados à EFK Stack (Elasticsearch, Fluentd e Kibana).
+Esta versão ainda está em fase de estabilização, portanto podem ocorrer falhas durante o uso.
+
+Para testar, siga os mesmos passos de inicialização descritos anteriormente.
+> Atenção: por exigir um volume considerável de memória RAM no ambiente local, essa versão pode apresentar instabilidades no healthcheck das aplicações.
