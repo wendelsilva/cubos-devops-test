@@ -84,6 +84,10 @@ terraform apply -auto-approve
 ```
 > Caso utilize o comando sem o parâmetro `-auto-approve`, confirme a criação da infraestrutura digitando `yes`
 
+### Criar Infraestrutura
+Após a criação da infraestrutura o frontend estará disponível em:
+[Frontend](http://localhost:8080)
+
 ### Comandos Úteis
 - Listar containers
 ```bash
