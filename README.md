@@ -58,12 +58,12 @@ Os dados do banco de dados são armazenados dentro de um volume docker chamado `
 ### Preparar variáveis
 Na raiz do projeto crie um arquivo `terraform.tfvars` ou `qualqueroutronome.auto.tfvars` e adicione as seguintes variáveis:
 ```hcl
-postgres_user     = "ususario_do_postgres"
+postgres_user     = "usuario_do_postgres"
 postgres_password = "senha_do_usuario_do_postgres"
 ```
 Dentro da pasta backend crie um arquivo `.env` e adicione as seguintes variáveis:
 ```env
-DATABASE_USER="ususario_do_postgres"
+DATABASE_USER="usuario_do_postgres"
 DATABASE_PASSWORD="senha_do_usuario_do_postgres"
 DATABASE_URL="postgres"
 DATABASE_PORT="5432"
@@ -82,7 +82,7 @@ terraform apply
 ou
 terraform apply -auto-approve
 ```
-Caso utilize o comando sem o parâmetro `-auto-approve`, confirme a criação da infraestrutura digitando `yes`
+> Caso utilize o comando sem o parâmetro `-auto-approve`, confirme a criação da infraestrutura digitando `yes`
 
 ### Comandos Úteis
 - Listar containers
@@ -99,3 +99,10 @@ terraform destroy
 ou
 terraform destroy -auto-approve
 ```
+
+## Links Úteis
+
+- [Documentação Docker](https://docs.docker.com/guides/)
+- [Terraform Docker Provider](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs)
+- [Documentação Nginx](https://nginx.org/en/docs/beginners_guide.html)
+- [Docker Hub](https://hub.docker.com/)
